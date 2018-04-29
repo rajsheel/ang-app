@@ -10,8 +10,8 @@ import { Recipe } from '../recipe.model';
 export class RecipelistComponent implements OnInit {
 
 	recipes: Recipe[] = [
-       new Recipe("Test Recipe", "Test Recipe Desc","https://static01.nyt.com/images/2015/08/14/dining/14ROASTEDSALMON/14ROASTEDSALMON-articleLarge.jpg")
-        new Recipe("Test Recipe", "Test Recipe Desc","https://static01.nyt.com/images/2015/08/14/dining/14ROASTEDSALMON/14ROASTEDSALMON-articleLarge.jpg")
+       new Recipe("Test Recipe", "Test Recipe Desc","https://static01.nyt.com/images/2015/08/14/dining/14ROASTEDSALMON/14ROASTEDSALMON-articleLarge.jpg"),
+        new Recipe("Test Recipe", "Test Recipe Desc","https://static01.nyt.com/images/2015/08/14/dining/14ROASTEDSALMON/14ROASTEDSALMON-articleLarge.jpg"),
          new Recipe("Test Recipe", "Test Recipe Desc","https://static01.nyt.com/images/2015/08/14/dining/14ROASTEDSALMON/14ROASTEDSALMON-articleLarge.jpg")
 	];
 
