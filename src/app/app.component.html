@@ -1,9 +1,9 @@
-<app-header></app-header>
+<app-header (featureRequested)='featureLoaded($event)'></app-header>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <app-recipe></app-recipe>
-      <app-shoppinglist></app-shoppinglist>
+      <app-recipe *ngIf='featureRequested === "recipe"'></app-recipe>
+      <app-shoppinglist *ngIf='featureRequested === "shopping-list"'></app-shoppinglist>
     </div>
   </div>
 </div>
