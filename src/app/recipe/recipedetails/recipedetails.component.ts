@@ -19,10 +19,9 @@ export class RecipedetailsComponent implements OnInit {
   }
   addIngrediettoShoppingList() {
     
-    for (let ingredient of this.recipe.ingredients) {
-    	this.shoppingList.addIngredient(ingredient);
+    
+    	this.shoppingList.addIngredients(this.recipe.ingredients);
     	//this.shoppingList.ingredientAdded.emit(ingredient);
-    }
 	
   }
 }

@@ -17,6 +17,13 @@ export class shoppingListService {
 		// console.log("inside shoppinglist service"+ str);
 
 	}
+	addIngredients(ingredients: Ingredients[]) {
+    // for (let ingredient of ingredients) {
+    //   this.addIngredient(ingredient);
+    // }
+    this.ingredient.push(...ingredients);
+    this.ingredientAdded.emit(this.ingredient.slice());
+  }
     
     getIngredients () {
 
