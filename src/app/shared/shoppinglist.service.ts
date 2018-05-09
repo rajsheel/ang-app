@@ -4,16 +4,22 @@ import { Ingredients } from './ingredients.model';
 
 export class shoppingListService {
 
-	ingredient: Ingredients;
+	private ingredient: Ingredients[] = [];
 	
 
-	ingredientAdded = new EventEmitter<Ingredients>();
+	ingredientAdded = new EventEmitter<Ingredients[]>();
 
 	addIngredient (ingredient: Ingredients) {
 
-		this.ingredient = ingredient;
-		//console.log("inside shoppinglist service");
+		this.ingredient.push(ingredient);
+		this.ingredientAdded.emit(this.ingredient.slice());
+		// var str = JSON.stringify(ingredient)
+		// console.log("inside shoppinglist service"+ str);
 
 	}
+    
+    getIngredients () {
 
+    	return this.ingredient.slice();
+    }
 }
