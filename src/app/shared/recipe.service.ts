@@ -22,7 +22,7 @@ export class RecipeService {
 			 		new Ingredients("Pepporoni",10)])
 	];
 
-	recipeClicked = new EventEmitter<Recipe>();
+	//recipeClicked = new EventEmitter<Recipe>();
 
 	addRecipe(recipe:Recipe) {
 
@@ -33,7 +33,11 @@ export class RecipeService {
 
 		return this.recipe.slice();
 	}
+    
+    getRecipeByName(recipeName: string): Recipe {
 
+    	return this.recipe.find(recipe => recipe.name === recipeName);
+    }
 
 
 

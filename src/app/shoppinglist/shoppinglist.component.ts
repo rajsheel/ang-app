@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Ingredients } from '../shared/ingredients.model';
 import  {shoppingListService} from '../shared/shoppinglist.service';
+import { ActivatedRoute, Params, Router,NavigationEnd } from '@angular/router';
+import { Subscription } from 'rxjs/Subscription';
+
 
 
 @Component({
@@ -13,7 +16,8 @@ export class ShoppinglistComponent implements OnInit {
 
 	ingredients: Ingredients [] = [];
 
-  constructor(private shoppingList : shoppingListService) { 
+  constructor(private shoppingList : shoppingListService,
+              private route: ActivatedRoute) { 
 
     
     
@@ -21,8 +25,13 @@ export class ShoppinglistComponent implements OnInit {
 
   ngOnInit() {
 
-    this.ingredients = this.shoppingList.getIngredients();
-    this.shoppingList.ingredientAdded.subscribe((ingredients: Ingredients[]) => this.ingredients = ingredients);
+   // this.router.isActive().events.subscribe( event => console.log(event instanceof NavigationC));
+   this.route.params.subscribe( (param: Params) => {
+     this.ingredients = this.shoppingList.getIngredients();
+   })
+
+    
+    //this.shoppingList.ingredientAdded.subscribe((ingredients: Ingredients[]) => this.ingredients = ingredients);
     
   }
 
