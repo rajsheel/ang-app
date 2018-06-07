@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 //import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
+//import { HomeComponent } from './home/home.component';
 import { RecipeComponent } from './recipe/recipe.component';
 import { RecipelistComponent } from './recipe/recipelist/recipelist.component';
 import { RecipedetailsComponent } from './recipe/recipedetails/recipedetails.component';
@@ -14,12 +14,12 @@ import { ShoppinglisteditComponent } from './shoppinglist/shoppinglistedit/shopp
 //import { ErrorPageComponent } from './error-page/error-page.component';
 
 const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: ShoppinglistComponent },
   { path: 'recipe', component: RecipeComponent, children: [
     { path: '', component: RecipeStartComponent },
     { path: 'new', component: RecipeEditComponent },
-    { path: ':name', component: RecipedetailsComponent, pathMatch: 'full'},
-    { path: ':name/edit', component: RecipeEditComponent}
+    { path: ':id', component: RecipedetailsComponent, pathMatch: 'full'},
+    { path: ':id/edit', component: RecipeEditComponent}
   ]  },
   { path: 'shoppinglist', component: ShoppinglistComponent }
   // { path: 'users', component: UsersComponent, children: [

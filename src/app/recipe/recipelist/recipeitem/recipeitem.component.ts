@@ -11,6 +11,7 @@ export class RecipeitemComponent implements OnInit {
 
 
   @Input() recipe: Recipe;
+  @Input() index: number;
 
    //@Output() recipeDetails = new EventEmitter<void>();
 

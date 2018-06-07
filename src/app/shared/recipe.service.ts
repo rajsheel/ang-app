@@ -1,8 +1,11 @@
 import { EventEmitter } from '@angular/core';
 import {Recipe} from '../recipe/recipe.model';
 import {Ingredients} from './ingredients.model';
+import { Subject } from 'rxjs/Subject';
 
 export class RecipeService {
+
+	recipeChanged = new Subject<Recipe[]>();
 
 	private recipe: Recipe[] = [
 		new Recipe("Test Recipe 1", 
@@ -27,6 +30,7 @@ export class RecipeService {
 	addRecipe(recipe:Recipe) {
 
 		this.recipe.push(recipe);
+		this.recipeChanged.next(this.recipe);
 	}
 
 	getRecipes() {
@@ -39,6 +43,19 @@ export class RecipeService {
     	return this.recipe.find(recipe => recipe.name === recipeName);
     }
 
+    getRecipeById(index: number) {
+
+    	return this.recipe[index];
+
+    }
+    
+    deleteRecipe(index: number) {
+
+    	this.recipe.splice(index,1);
+    	this.recipeChanged.next(this.recipe);
+	}
+
+    }
 
 
 }

@@ -1,0 +1,8 @@
+span.error {
+	color: red;
+}
+input.ng-invalid.ng-touched {
+
+	background-color: pink;
+	border: red;
+}

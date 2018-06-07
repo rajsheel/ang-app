@@ -15,7 +15,7 @@ import { Subscription } from 'rxjs/Subscription';
 export class RecipedetailsComponent implements OnInit {
 
 	recipe: Recipe;
-  recipeName: string;
+  recipeIndex: number;
 
   constructor(private shoppingList: shoppingListService,
     private recipeService: RecipeService,
@@ -28,8 +28,8 @@ export class RecipedetailsComponent implements OnInit {
     this.route.params.subscribe(params => {
 
       //console.log(params);
-      this.recipeName = params['name'];
-      this.recipe = this.recipeService.getRecipeByName(this.recipeName);
+      this.recipeIndex = params['id'];
+      this.recipe = this.recipeService.getRecipeById(this.recipeIndex);
 
     });
   }
@@ -41,8 +41,18 @@ export class RecipedetailsComponent implements OnInit {
   }
 
   onEditRecipe() {
-    
+   //console.log("Inside Edit Recipe"+this.recipe);
+    //this.recipeService.recipeChanged.next(this.recipe);
     this.router.navigate(['edit'], {relativeTo: this.route});
+
+
+  }
+
+  onDeleteRecipe() {
+
+    this.recipeService.deleteRecipe(this.recipeIndex);
+    this.router.navigate(['../'], {relativeTo: this.route});
+
 
   }
 }
